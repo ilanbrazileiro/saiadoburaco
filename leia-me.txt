@@ -1,0 +1,4 @@
+Inicio da documentação
+
+1 - Alterar as configurações do banco de dados: Acesse a pasta \vendor\hcodebr\php-classes\src\DB\Sql.php
+
