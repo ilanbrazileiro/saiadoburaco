@@ -15,14 +15,14 @@ class Page {
 	];
 
 	#### Método contrutor, define as configurações e constroi o 'Header'
-	public function __construct($opts = array())
+	public function __construct($opts = array(), $tpl_dir = "/views/")
 	{
 
 		$this->options = array_merge($this->defaults, $opts);
 
 		$config = array(//configurações do RainTpl
 		    "base_url"      => null,
-		    "tpl_dir"       => $_SERVER['DOCUMENT_ROOT']."/views/", //Caminho dos templates do sistema
+		    "tpl_dir"       => $_SERVER['DOCUMENT_ROOT'].$tpl_dir, //Caminho dos templates do sistema
 		    "cache_dir"     => $_SERVER['DOCUMENT_ROOT']."/views-cache/",//Caminhos dos arquivos em cache do sistema
 		    "debug"         => false//
 		);
@@ -57,7 +57,7 @@ class Page {
 
 	}
 
-	#### Constoi o conteudo ####
+	#### Constroi o conteudo ####
 	public function setTpl($tplname, $data = array(), $returnHTML = false)
 	{
 
