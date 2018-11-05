@@ -6,7 +6,7 @@ class Model {
 
 	private $values = [];
 
-	public function __call($name, $args)
+	public function __call($name, $args)//Diferencia o Metodo chamado entre o GET e o POST
 	{
 
 		$method = substr($name, 0, 3);
@@ -24,7 +24,7 @@ class Model {
 		}
 	}
 
-	public function setData($data = array())
+	public function setData($data = array())//Seta os valores com as chaves correspondentes
 	{
 		foreach ($data as $key => $value) {
 			$this->{"set".$key}($value);

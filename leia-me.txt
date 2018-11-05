@@ -1,7 +1,11 @@
 Inicio da documentação
 
 1 - Alterar as configurações do banco de dados: Acesse a pasta \vendor\hcodebr\php-classes\src\DB\Sql.php
+2 - Alterar o caminho no metodo getForgot na classe User
+3 - Alterar as constantes USERNAME e PASSWORD na classe Mailer
+
 
 # Pasta de Templates é a /views para site
 # Pasta de Templates do Admin é /views/admin
+# O link para recuperar a senha tem uma tentativa e apenas uma hora para fazer
 
