@@ -15,7 +15,7 @@ class Model {
 		switch ($method)
 		{
 			case 'get':
-				return $this->values[$fieldName];
+				return (isset($this->values[$fieldName])) ? $this->values[$fieldName] :NULL;
 				break;
 			
 			default:
@@ -32,7 +32,7 @@ class Model {
 
 	}
 
-	public function getValues()
+	public function getValues()//Busca os valores setados em atributos
 	{
 		return $this->values;
 	}
