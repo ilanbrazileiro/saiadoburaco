@@ -16,6 +16,7 @@ $app = new Slim();
 
 $app->config('debug', true);//Habilitando visualização de erros
 
+require_once("functions.php");
 require_once("site.php");
 require_once("admin.php");
 

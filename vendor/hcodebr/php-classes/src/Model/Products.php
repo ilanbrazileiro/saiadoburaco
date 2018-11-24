@@ -18,6 +18,17 @@ class Products extends Model{
 
 	}
 
+	public static function checkList($list)
+	{//Trata todos os dados necessários do produt e retorna com a lista completa de produtos
+		foreach ($list as &$row) {
+			$p = new Products();
+			$p->setData($row);
+			$row = $p->getValues();
+		}
+
+		return $list;
+	}
+
 	public function save()##### Salva os registros no BD
 	{
 		$sql = new Sql();
