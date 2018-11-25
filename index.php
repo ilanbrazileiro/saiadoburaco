@@ -2,7 +2,7 @@
 
 #################################################
 #												#
-#	ARQUIVO COM AS ROTAS DE TODO O SISTEMA! 	#
+#	ARQUIVO COM AS CONFIGURAÇÕES INICIAIS!	 	#
 #												#
 #################################################
 
