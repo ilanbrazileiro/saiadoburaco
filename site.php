@@ -24,17 +24,35 @@ $app->get('/', function() {//configurando a rota e dentro vai a página
 
 $app->get("/categories/:idcategory", function($idcategory){
 
+ 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
  	$category = new Category();
 
 	$category->get((int)$idcategory);
+
+	$pagination = $category->getProductPage($page);
+
+	$pages = [];
+
+	for ($i=1; $i <=$pagination['pages'] ; $i++) { 
+		array_push($pages, [
+			'link'=>'/categories/'.$category->getidcategory().'?page='.$i,
+			'page'=>$i
+		]);
+	}
 
 	$page = new Page();
 
 	$page->setTpl("category",[
 		'category'=>$category->getValues(),
-		'products'=>Products::checkList($category->getProducts())
+		'products'=>$pagination['data'],
+		'pages'=>$pages
 	]);
 });
+
+
+
+
 
 $app->get("/teste", function(){//Caminho para testes do sistema (by Ilan)
 
@@ -51,6 +69,7 @@ $app->get("/teste", function(){//Caminho para testes do sistema (by Ilan)
  	var_dump($a);
 
 });
+
 
 
 
