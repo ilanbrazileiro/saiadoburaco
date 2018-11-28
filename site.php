@@ -10,6 +10,7 @@ use \Hcode\Page;//usando a classe Page para carregar as páginas
 use \Hcode\Model\User;
 use \Hcode\Model\Category;//Classe categoria de produtos
 use \Hcode\Model\Products;
+use \Hcode\Model\Cart;
 
 $app->get('/', function() {//configurando a rota e dentro vai a página
     $products = Products::listAll();
@@ -65,6 +66,16 @@ $app->get("/products/:desurl", function($desurl){//Caminho para testes do sistem
 
 });
 
+
+$app->get("/cart", function(){//Caminho para testes do sistema (by Ilan)
+
+ 	$cart = Cart::getFromSession();
+
+ 	$page = new Page();
+
+ 	$page->setTpl("cart");
+
+});
 
 
 $app->get("/teste", function(){//Caminho para testes do sistema (by Ilan)
