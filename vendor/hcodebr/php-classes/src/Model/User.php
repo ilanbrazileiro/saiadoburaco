@@ -291,6 +291,68 @@ class User extends Model{
 		]);
 	}
 
+	public static function setSuccess($msg)
+	{
+	
+		$_SESSION[User::SUCCESS] = $msg;
+	
+	}
+	
+	public static function getSuccess()
+	{
+	
+		$msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : '';
+	
+		User::clearSuccess();
+	
+		return $msg;
+	
+	}
+	
+	public static function clearSuccess()
+	{
+	
+		$_SESSION[User::SUCCESS] = NULL;
+	
+	}
+	
+	public static function setErrorRegister($msg)
+	{
+	
+		$_SESSION[User::ERROR_REGISTER] = $msg;
+	
+	}
+	
+	public static function getErrorRegister()
+	{
+	
+		$msg = (isset($_SESSION[User::ERROR_REGISTER]) && $_SESSION[User::ERROR_REGISTER]) ? $_SESSION[User::ERROR_REGISTER] : '';
+	
+		User::clearErrorRegister();
+	
+		return $msg;
+	}
+	
+	public static function clearErrorRegister()
+	{
+	
+		$_SESSION[User::ERROR_REGISTER] = NULL;
+	
+	}
+	
+	public static function checkLoginExist($login)
+	{
+	
+		$sql = new Sql();
+	
+		$results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :deslogin", [
+			':deslogin'=>$login
+		]);
+	
+		return (count($results) > 0);
+	}
+
+
  }//Fim da Classe User
 
 ?>
