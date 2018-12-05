@@ -75,7 +75,8 @@ $app->get("/cart", function(){
 
  	$page->setTpl("cart",[
  		'cart'=>$cart->getValues(),
- 		'products'=>$cart->getProducts()
+ 		'products'=>$cart->getProducts(),
+ 		'error'=>Cart::getMsgError()
  	]);
 
 });
@@ -131,6 +132,15 @@ $app->get("/cart/:idproduct/remove", function($idproduct){
 
 });
 
+$app->post("/cart/freight", function(){
+
+	$cart = Cart::getFromSession();//Pegando o carrinho da sessão
+
+	$cart->setFreight($_POST['zipcode']);//Passando o CEP para a definir frete
+
+	header("Location: /cart");
+ 	exit;
+});
 
 $app->get("/teste", function(){//Caminho para testes do sistema (by Ilan)
 
