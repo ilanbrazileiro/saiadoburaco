@@ -99,8 +99,9 @@ class User extends Model{
 			':iduser' => $iduser 
 		));
 
+		$data = $results[0];
 		$data['desperson'] = utf8_encode($data['desperson']);
-		$this->setData($results[0]);//Seta os valores em suas chaves
+		$this->setData($data);
 	}
 
 	public function update()
@@ -175,6 +176,7 @@ class User extends Model{
 	         }
 	     }
 	 }
+
 	 public static function validForgotDecrypt($result)
 	 {
 	     $result = base64_decode($result);
@@ -206,7 +208,7 @@ class User extends Model{
 	     }
 	 }
 
-	 public static function setForgotUsed($idrecovery)
+	public static function setForgotUsed($idrecovery)
 	 {
 	 	$sql = new Sql();
 
