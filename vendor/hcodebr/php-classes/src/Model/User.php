@@ -13,6 +13,7 @@ class User extends Model{
 	const CIPHER = "aes-128-gcm";
 	const ERROR = "UserError";
 	const ERROR_REGISTER = "UserErrorRegister";
+	const SUCCESS = "UserSucess";
 
 
 	public static function login ($login, $password)#### Logar Usuário no sistema
