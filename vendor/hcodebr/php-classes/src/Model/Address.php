@@ -39,6 +39,7 @@ class Address extends Model{
 			$this->setdeszipcode($nrcep);
 		}
 	}
+
 	public function save()
 	{
 		$sql = new Sql();
@@ -58,6 +59,7 @@ class Address extends Model{
 			$this->setData($results[0]);
 		}
 	}
+	
 	public static function setMsgError($msg)
 	{
 		$_SESSION[Address::SESSION_ERROR] = $msg;
