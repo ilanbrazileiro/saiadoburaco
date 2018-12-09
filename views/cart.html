@@ -26,6 +26,7 @@
                             {$error}
                             </div>
                             {/if}
+
                             <table cellspacing="0" class="shop_table cart">
                                 <thead>
                                     <tr>
@@ -49,11 +50,11 @@
                                         </td>
 
                                         <td class="product-name">
-                                            <a href="/products/{$value.desurl}">{$value.desproduct}</a> 
+                                            <a href="/product/{$value.desurl}">{$value.desproduct}</a> 
                                         </td>
 
                                         <td class="product-price">
-                                            <span class="amount">{function="formatPrice($value.vlprice)"}</span> 
+                                            <span class="amount">R${function="formatPrice($value.vlprice)"}</span> 
                                         </td>
 
                                         <td class="product-quantity">
@@ -65,11 +66,10 @@
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <span class="amount">{function="formatPrice($value.vltotal)"}</span> 
+                                            <span class="amount">R${function="formatPrice($value.vltotal)"}</span> 
                                         </td>
-                                        {/loop}
                                     </tr>
-                                    
+                                    {/loop}
                                 </tbody>
                             </table>
 
@@ -100,7 +100,7 @@
 
                                             <tr class="shipping">
                                                 <th>Frete</th>
-                                                <td>R$ {function="formatPrice($cart.vlfreight)"} {if="$cart.nrdays > 0"} <small>prazo de {$cart.nrdays} dia(s)</small>{/if}</td>
+                                                <td>R${function="formatPrice($cart.vlfreight)"}{if="$cart.nrdays > 0"} <small>prazo de {$cart.nrdays} dia(s)</small>{/if}</td>
                                             </tr>
 
                                             <tr class="order-total">

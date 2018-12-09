@@ -60,6 +60,13 @@ class Sql {
 
 		$stmt->execute();
 
+		/*
+		if($stmt->execute() === false){
+    		echo "<pre>";
+   		 print_r($stmt->errorInfo());
+   		 exit;
+		}
+		*/
 		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 	}

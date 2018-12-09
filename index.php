@@ -1,28 +1,21 @@
 <?php 
-
-#################################################
-#												#
-#	ARQUIVO COM AS CONFIGURAÇÕES INICIAIS!	 	#
-#												#
-#################################################
-
 session_start();
-require_once("vendor/autoload.php");//incluindo o autoload
+require_once("vendor/autoload.php");
 
-use \Slim\Slim;//usando o Slim
-
+use \Slim\Slim;
 
 $app = new Slim();
 
-$app->config('debug', true);//Habilitando visualização de erros
+$app->config('debug', true);
 
 require_once("functions.php");
 require_once("site.php");
 require_once("admin.php");
+require_once("admin-users.php");
+require_once("admin-categories.php");
+require_once("admin-products.php");
+require_once("admin-orders.php");
 
-
-
-
-$app->run();//rodando a aplicação
+$app->run();
 
  ?>
